@@ -37,11 +37,6 @@ body {
   
 }
 
-/* Dark Mode */
-.dark-mode {
-  background: linear-gradient(135deg, #232526, #414345);
-  color: white;
-}
 
 /* Title */
 .title {
@@ -64,24 +59,6 @@ body {
   width: 250px;
   font-size: 16px;
 } */
-.search-input {
-  width: 90%;
-  padding: 12px;
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
-  text-align: center;
-  margin: 15px 0;
-  outline: none;
-  transition: transform 0.3s;
-  background-color: white;
-  color: #111;
-
-}
-
-.search-bar:focus {
-  transform: scale(1.05);
-}
 
 /* Toggle Button */
 .unit-toggle {
@@ -113,33 +90,6 @@ body {
   margin: 5px 0;
 } */
 
-/* 🌦 Weather Card */
-.weather-card {
-  margin-top: 20px;
-  padding: 20px;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(8px);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s ease-in-out;
-}
-
-.weather-card:hover {
-  transform: scale(1.05);
-}
-
-/* 🌡 Temperature */
-.temperature {
-  font-size: 36px;
-  font-weight: bold;
-}
-
-/* 🌫 Weather Details */
-.weather-detail { 
-  font-size: 16px;
-  color: #444;
-}
 
 /* Forecast Container */
 /* .forecast-container {
@@ -157,45 +107,6 @@ body {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 } */
 
-/* 📅 Forecast Container */
-.forecast-container {
-  margin-top: 20px;
-  text-align: center;
-}
-
-/* 📊 Forecast Grid */
-.forecast-grid {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-/* 🗓 Forecast Card */
-.forecast-card {
-  padding: 10px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(6px);
-  transition: transform 0.3s;
-}
-
-.forecast-card:hover {
-  transform: scale(1.1);
-}
-
-/* 📆 Forecast Date */
-.forecast-date {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-/* 🌡 Forecast Temperature */
-.forecast-temp {
-  font-size: 16px;
-  color: #333;
-}
 /* 🎭 Buttons */
 .btn {
   padding: 10px 20px;
@@ -233,4 +144,16 @@ body {
     width: 100%;
     max-width: 200px;
   }
+}
+
+.main {
+  grid-area: main;
+}
+
+.header {
+  grid-area: header;
+}
+
+.forecast {
+  grid-area: forecast;
 }

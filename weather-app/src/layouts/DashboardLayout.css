@@ -1,0 +1,25 @@
+.dashboard-layout {
+   display: grid;
+   grid-template-areas:
+      "heading toggle"
+      "main main"
+      "forecast forecast";
+   grid-template-columns: 3fr 1fr;
+   grid-template-rows: 70px 1fr 1fr;
+   width: 90vw;
+   align-items: flex-start;
+   gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+   .dashboard-layout {
+      display: grid;
+      grid-template-areas:
+         "heading heading heading toggle"
+         "main main forecast forecast";
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 70px 1fr 1fr;
+      width: 100vw;
+      align-items: flex-start;
+   }
+}

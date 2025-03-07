@@ -1,11 +1,11 @@
 import React, { createContext, useReducer, PropsWithChildren } from "react";
 
 export const initialValues = {
-	unit: "",
-	city: "",
-};
+	unit: "metric",
+	city: "Delhi",
+} as any;
 
-export const WeatherContext = createContext({});
+export const WeatherContext = createContext({ weatherData: initialValues, setUnit: (_val: string) => {}, setCity: (_val: string) => {} });
 
 const reducer = (state: any, action: any) => {
 	switch (action.type) {
