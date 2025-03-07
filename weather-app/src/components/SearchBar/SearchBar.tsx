@@ -12,7 +12,7 @@ const SearchBar = () => {
     }
     
     return <>
-        <div>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
             <input
                 type="text"
                 value={cityValue}

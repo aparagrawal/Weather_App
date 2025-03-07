@@ -1,39 +1,54 @@
-
 /* 📅 Forecast Container */
 .forecast-container {
-    /* background: rgba(255, 255, 255, 0.3); */
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  /* 📊 Forecast Grid */
-  .forecast-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-  
-  /* 🗓 Forecast Card */
-  .forecast-card {
-    padding: 10px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(6px);
-    transition: transform 0.3s;
-  }
-  
-  .forecast-card:hover {
-    transform: scale(1.1);
-  }
-  
-  /* 📆 Forecast Date */
-  .forecast-date {
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
-  /* 🌡 Forecast Temperature */
-  .forecast-temp {
-    font-size: 16px;
-    color: #333;
-  }
+   /* background: rgba(255, 255, 255, 0.3); */
+   margin-top: 20px;
+   text-align: center;
+}
+
+/* 📊 Forecast Grid */
+.forecast-grid {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 10px;
+}
+
+/* 🗓 Forecast Card */
+.forecast-card {
+   padding: 10px;
+   border-radius: 8px;
+   background: rgba(255, 255, 255, 0.2);
+   backdrop-filter: blur(6px);
+   transition: transform 0.3s;
+}
+
+.forecast-card:hover {
+   transform: scale(1.1);
+}
+
+/* 📆 Forecast Date */
+.forecast-date {
+   font-size: 14px;
+   font-weight: bold;
+}
+
+/* 🌡 Forecast Temperature */
+.forecast-temp {
+   font-size: 16px;
+   color: #333;
+}
+
+@media (max-width: 768px) {
+   .container {
+      max-width: 90%;
+   }
+
+   .forecast-grid {
+      flex-direction: column;
+      align-items: center;
+   }
+
+   .forecast-card {
+      /* width: 100%; */
+      max-width: 200px;
+   }
+}

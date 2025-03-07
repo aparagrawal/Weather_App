@@ -11,13 +11,13 @@ function App() {
 				<div style={{ gridArea: "heading", textAlign: "center" }}>
 					<h2>Weather App</h2>
 				</div>
-				<div className="toggle">
+				<div style={{ gridArea: "toggle" }}>
 					<DarkModeToggle />
 				</div>
-				<div className="main">
+				<div style={{ gridArea: "main" }}>
 					<WeatherCard />
 				</div>
-				<div className="forecast">
+				<div style={{ gridArea: "forecast" }}>
 					<Forecast />
 				</div>
 			</DashboardLayout>

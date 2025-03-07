@@ -129,31 +129,3 @@ body {
 .dark-mode-btn {
   background: linear-gradient(90deg, #444, #111);
 }
-
-@media (max-width: 768px) {
-  .container {
-    max-width: 90%;
-  }
-
-  .forecast-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .forecast-card {
-    width: 100%;
-    max-width: 200px;
-  }
-}
-
-.main {
-  grid-area: main;
-}
-
-.header {
-  grid-area: header;
-}
-
-.forecast {
-  grid-area: forecast;
-}
