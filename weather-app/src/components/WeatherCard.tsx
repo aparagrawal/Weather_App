@@ -1,9 +1,11 @@
 import React from 'react'
 
-function WeatherCard({weather,unit}:{weather:any,unit:any}) {
+function WeatherCard({weather,unit,weatherIcon}:{weather:any,unit:any,weatherIcon:any}) {
 
     const weatherCondition = weather.weather.find((item:any)=>item.main).main
-    console.log('This is my weather condition',weatherCondition)
+
+   
+    
   return (
 
 
@@ -13,6 +15,11 @@ function WeatherCard({weather,unit}:{weather:any,unit:any}) {
       <p className="weather-detail">Humidity: {weather.main.humidity}%</p>
       <p className="weather-detail">Wind: {weather.wind.speed} {unit === "metric" ? "km/h" : "mph"}</p>
       <p className="weather-detail">Weather Condition: {weatherCondition}</p>
+      <img 
+    src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`} 
+    alt={weather.weather[0].description} 
+    className="weather-icon"
+  />
 
 
     </div>
