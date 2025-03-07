@@ -12,6 +12,7 @@ interface WeatherData {
   humidity: string;
   speed: string;
   condition: string;
+  icon?: string;
 }
 
 const WeatherCard = () => {
@@ -44,7 +45,8 @@ const WeatherCard = () => {
               temperature: weatherData.main.temp ?? "",
               humidity: weatherData.main.humidity ?? '',
               speed: weatherData.wind.speed  ?? "",
-              condition: weatherData.weather[0].main ?? ""
+              condition: weatherData.weather[0].main ?? "",
+              icon: weatherData.weather[0].icon ?? ""
             }
             
             setWeather(data);
@@ -68,7 +70,12 @@ const WeatherCard = () => {
       <p className="temperature">{weather.temperature}°{unit === "metric" ? "C" : "F"}</p>
       <p className="weather-detail">Humidity: {weather.humidity}%</p>
       <p className="weather-detail">Wind: {weather.speed} {unit === "metric" ? "km/h" : "mph"}</p>
-      <p className="weather-detail">Weather Condition: {}</p>
+      <p className="weather-detail">Weather Condition: {weather.condition}</p>
+      <img 
+        src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`} 
+        alt={weather.condition} 
+        className="weather-icon"
+      />
     </div>
   </>
   )
