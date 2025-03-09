@@ -8,10 +8,10 @@ function App() {
 	return <>
 		<WeatherContextProvider>
 			<DashboardLayout>
-				<div style={{ gridArea: "heading", textAlign: "center" }}>
-					<h2>Weather App</h2>
+				<div style={{ gridArea: "heading", textAlign: "left" }}>
+					<h2 className="title">Weather App</h2>
 				</div>
-				<div style={{ gridArea: "toggle" }}>
+				<div style={{ gridArea: "toggle", display: "flex", justifyContent: "flex-end", alignItems: "center", height: "100%" }}>
 					<DarkModeToggle />
 				</div>
 				<div style={{ gridArea: "main" }}>

@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { WeatherContext } from "../../context/WeatherContext";
+import "./UnitSwitch.css";
 
 const UnitSwitch = () => {
 
@@ -13,7 +14,7 @@ const UnitSwitch = () => {
 
     return (
         <div>
-            <button onClick={hanldeSwitch}>{metric}</button>
+            <button className="unit-switch" onClick={hanldeSwitch}>{metric}</button>
         </div>
     );
 }

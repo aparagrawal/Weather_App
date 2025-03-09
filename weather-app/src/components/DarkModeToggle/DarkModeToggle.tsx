@@ -1,12 +1,17 @@
+import { useContext } from 'react';
 import './DarkModeToggle.css';
+import { WeatherContext } from '../../context/WeatherContext';
 
 const DarkModeToggle = () => {
+
+  const { weatherData: { mode }, setMode } = useContext(WeatherContext);
+
   return (
     <button
-      // onClick={() => setDarkMode(!darkMode)}
+      onClick={() => setMode()}
       className="btn dark-mode-btn"
     >
-      {/* {darkMode ? "Light Mode" : "Dark Mode"} */}
+      {mode === 'light' ? "Light Mode" : "Dark Mode"}
     </button>
   );
 };

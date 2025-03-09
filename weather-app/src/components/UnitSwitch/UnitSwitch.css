@@ -1,0 +1,9 @@
+.unit-switch {
+   margin-top: 10px;
+   padding: 8px 15px;
+   background-color: blue;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
