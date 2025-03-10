@@ -4,6 +4,8 @@ import useApiServices from '../../services/useApiServices';
 import { WeatherContext } from '../../context/WeatherContext';
 import SearchBar from '../SearchBar/SearchBar';
 import UnitSwitch from '../UnitSwitch/UnitSwitch';
+import ErrorModal from '../../Utils/ErrorModal';
+import Apiloader from '../../Utils/Apiloader';
 
 interface WeatherData {
   name: string;
@@ -28,11 +30,14 @@ const WeatherCard = () => {
     speed: "",
     condition: ""
   });
+  const [showErrorModal,setShowErrorModal] = useState(false)
+  const [showLoader,setShowLoader] = useState(false)
 
   useEffect(() => {
     if(city && unit) {
 
       const getWeatherDetails = async (cityName: string, unit: string) => {
+        setShowLoader(true)
         try {
           const response = await fetchWeatherDetails(cityName, unit);
           
@@ -54,7 +59,10 @@ const WeatherCard = () => {
             alert("Something went wrong!");
           }
         } catch (error) {
-          alert("Something went wrong!");
+          setShowErrorModal(true)
+        }
+        finally{
+          setShowLoader(false)
         }
       };
       
@@ -65,6 +73,7 @@ const WeatherCard = () => {
   return (<>
     <SearchBar/>
     <UnitSwitch/>
+   {showLoader && <Apiloader/>}
     <div className="weather-card">
       <h2 className="weather-title">{weather.name}, {weather.country}</h2>
       <p className="temperature">{weather.temperature}°{unit === "metric" ? "C" : "F"}</p>
@@ -77,6 +86,10 @@ const WeatherCard = () => {
         className="weather-icon"
       />
     </div>
+    {showErrorModal && 
+    <ErrorModal  setShowErrorModal={setShowErrorModal} />
+    }
+   
   </>
   )
 }

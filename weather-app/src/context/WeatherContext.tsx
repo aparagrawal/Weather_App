@@ -2,7 +2,7 @@ import React, { createContext, useReducer, PropsWithChildren } from "react";
 
 export const initialValues = {
 	unit: "metric",
-	city: "Delhi",
+	city: "Mumbai",
 	mode: "light",
 } as any;
 

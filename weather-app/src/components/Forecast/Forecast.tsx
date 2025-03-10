@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import './Forecast.css';
 import useApiServices from '../../services/useApiServices';
 import { WeatherContext } from '../../context/WeatherContext';
+import ErrorModal from '../../Utils/ErrorModal';
+import Apiloader from '../../Utils/Apiloader';
 
 const Forecast = () => {
 
@@ -9,28 +11,35 @@ const Forecast = () => {
   const { weatherData: { city, unit } } = useContext(WeatherContext);
 
   const [forecast, setForecast] = useState<any[]>([]);
+  const [showErrorModal,setShowErrorModal] = useState(false)
+  const [showLoader,setShowLoader] = useState(false)
+
+
 
   useEffect(() => {
     if(city && unit) {
       const getForecastDetails = async (cityName:string, unit: string) => {
+        setShowLoader(true)
         try {
           const response = await fetachForecastDetails(cityName, unit);
 
           if(response.status === 200 && response.data) {
-            setForecast(response.data.list);
+            setForecast(response.data.list.filter((_:any, i:number) => i % 8 === 0));
           } else {
-            // alert("Forecast not found!");
+           setShowErrorModal(true)
           }
 
         } catch (error) {
-          // alert("Forecast not found!");
+          setShowErrorModal(true)
+        }
+        finally{
+          setShowLoader(false)
         }
       };
 
       getForecastDetails(city, unit);
     }
   }, [city, unit]);
-
 
   return (
     <div className="forecast-container">
@@ -44,7 +53,12 @@ const Forecast = () => {
           </div>
         ))}
       </div>
+      {showErrorModal && (
+        <ErrorModal setShowErrorModal={setShowErrorModal}/>
+      )}
+       {showLoader && <Apiloader/>}
     </div>
+   
   );
 };
 
